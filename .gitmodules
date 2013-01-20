@@ -73,3 +73,15 @@
 [submodule "bundle/vundle"]
 	path = bundle/vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule "bundle/jslint"]
+	path = bundle/jslint
+	url = git@github.com:hallettj/jslint.vim.git
+[submodule "bundle/tabular"]
+	path = bundle/tabular
+	url = git@github.com:godlygeek/tabular.git
+[submodule "bundle/jshint"]
+	path = bundle/jshint
+	url = git@github.com:wookiehangover/jshint.vim.git
+[submodule "bundle/delimitmate"]
+	path = bundle/delimitmate
+	url = git@github.com:Raimondi/delimitMate.git
