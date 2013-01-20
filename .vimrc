@@ -21,15 +21,15 @@ set nocompatible
 set noic
 set noswapfile
 set nowrap                                                  " don't wrap lines
-set softtabstop     =4
-set tabstop         =4                                      " a tab is four spaces
+set softtabstop     =2
+set tabstop         =2                                      " a tab is four spaces
 set backspace       =indent,eol,start                       " allow backspacing over everything in insert mode
-set shiftwidth      =4                                      " number of spaces to use for autoindenting
+set shiftwidth      =2                                      " number of spaces to use for autoindenting
 set pastetoggle     =<F2>
 set t_Co            =256
 set wildignore      =*.py[co]
 set wildmode        =list:longest,list:full
-set clipboard       =unnamedplus
+"set clipboard       =unnamedplus
 set gfn             =Monospace\ 10
 set background      =dark
 set tags            +=~/.tags/tags
@@ -48,24 +48,27 @@ let g:closetag_default_xml              =1
 let g:sparkupNextMapping                ='<c-h>'
 let g:ackprg                            ="ack-grep -H --nocolor --nogroup --column"
 let g:surround_{char2nr("r")}           ="_(u\r)"
-let g:virtualenv_directory              ="/home/tuxcanfly/.virtualenvs2.7/"
-let g:Powerline_colorscheme             ="colorful"
+let g:virtualenv_directory              ="/home/munch/"
+"let g:Powerline_colorscheme             ="colorful"
 let g:Powerline_symbols                 ="fancy"
 let g:UltiSnipsSnippetDirectories       =["UltiSnips", "snippets"]
 let g:neocomplcache_enable_at_startup   =1
 let g:syntastic_check_on_open           =1
-let g:syntastic_error_symbol            ='✗'
-let g:syntastic_warning_symbol          ='⚠'
+let g:syntastic_error_symbol            ='EE' "'✗'
+let g:syntastic_warning_symbol          ='WW' "'⚠'
 let g:syntastic_python_checker          ='pylint'
 
-colorscheme badwolf
+colorscheme wombat
 function! s:Gentags()
     :! find . -name '*.py' | xargs ctags
 endfunction
 command! -nargs=0 Gentags call s:Gentags()
 
 
-autocmd     FileType            html        set         ft          =htmldjango
+"autocmd     FileType            html        set         ft          =htmldjango
+autocmd     FileType            python      setlocal    ts          =4  sts=4   sw=4    et
+autocmd     FileType            html        setlocal    ts          =2  sts=2   sw=2
+autocmd     FileType            javascript  setlocal    ts          =2  sts=2   sw=2    et
 autocmd     FileType            coffee      setlocal    ts          =2  sts=2   sw=2    et
 autocmd     FileType            jade        setlocal    ts          =2  sts=2   sw=2    et
 
@@ -74,6 +77,9 @@ autocmd     FileType            jade        setlocal    ts          =2  sts=2   
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Bundle 'delimitmate'
+Bundle 'jshint'
+Bundle 'tabular'
 Bundle 'tpope/vim-ragtag'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'bkad/CamelCaseMotion'
@@ -84,7 +90,7 @@ Bundle 'vim-scripts/trailing-whitespace'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/UltiSnips'
 Bundle 'html5.vim'
-Bundle 'michaeljsmith/vim-indent-object'
+"Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'argtextobj.vim'
 Bundle 'ack.vim'
 Bundle 'jmcantrell/vim-virtualenv'
@@ -97,6 +103,9 @@ Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/syntastic'
 
 """ ---- Keybindings ----
+
+" Set leader key
+let mapleader = ","
 
 " toggle fugitive status
 map <silent><leader>s :Gstatus<CR>
